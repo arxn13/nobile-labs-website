@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+    --primary: 221 83% 53%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 47% 11%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+    --accent: 221 83% 53%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 221 83% 53%;
+    --radius: 0.875rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground;
+    background-color: #ffffff;
+    background-image:
+      radial-gradient(circle at 50% 0%, rgba(37, 99, 235, 0.05), transparent 55%);
+    background-attachment: fixed;
+  }
+}
+
+@layer components {
+  .glass {
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    background-color: rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(16px);
+  }
+  .glass-strong {
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(20px);
+  }
+  .gradient-text {
+    @apply bg-gradient-to-r from-blue-600 to-sky-500 bg-clip-text text-transparent;
+  }
+  .grid-bg {
+    background-image:
+      linear-gradient(to right, rgba(15, 23, 42, 0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(15, 23, 42, 0.04) 1px, transparent 1px);
+    background-size: 56px 56px;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .animate-float {
+    animation: float 8s ease-in-out infinite;
+  }
+  .animate-float-slow {
+    animation: float 12s ease-in-out infinite;
+  }
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+  .animation-delay-4000 {
+    animation-delay: 4s;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+::selection {
+  background-color: rgba(37, 99, 235, 0.15);
+  color: #1e3a8a;
+}
